@@ -5,7 +5,7 @@ package ejerciciosArrays;
 
 /**
  *
- * @author USUARIO
+ * @author Andres Felipe Trochez Lugo
  */
 public class Ejercicio6 {
     public static void main(String[] args) {
