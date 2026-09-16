@@ -281,9 +281,6 @@ public class Ejercicio5 {
 
 
 ```java
-/*
-Rellenar aleatoriamente un array de 10 números enteros. Indicar si todos los números son iguales.
- */
 package ejerciciosArrays;
 
 /**
@@ -326,8 +323,125 @@ public class Ejercicio6 {
 ```
 
 # Evidencia de la ejecución del programa  
-<img width="1919" height="1078" alt="image" src="https://github.com/user-attachments/assets/a67732f3-75fd-4187-8fd3-a0d2f8e077e4" />  
+<img width="1919" height="1078" alt="image" src="https://github.com/user-attachments/assets/a67732f3-75fd-4187-8fd3-a0d2f8e077e4" />    
 
+
+
+
+# **Ejercicio 7**  
+
+Crear un programa que tenga dos arrays, uno con los 6 números de una apuesta de la primitiva, y otro con los 6 números ganadores. Los arrays se rellenan aleatoriamente (no hace falta controlar que no haya repetidos). El programa debe luego informar del número de aciertos, y mostrar también los dos arrays.
+
+
+```java
+package ejerciciosArrays;
+
+/**
+ *
+ * @author Andres Felipe Trochez Lugo
+ */
+public class Ejercicio7 {
+
+    public static void main(String[] args) {
+        int aciertos = 0;
+        int[] apuesta = new int[6];
+        int[] ganadores = new int[6];
+        
+        for(int i=0;i<apuesta.length;i++){
+            apuesta[i] = (int)(Math.random() * 49) + 1; //para subir un poco la probabilidad lo limito 
+        }
+        
+        for(int i=0;i<ganadores.length;i++){
+            ganadores[i] = (int)(Math.random() * 49) + 1; //para subir un poco la probabilidad lo limito 
+        }
+
+        for (int i = 0; i < apuesta.length; i++) {
+            for (int j = 0; j < ganadores.length; j++) {
+                if (apuesta[i] == ganadores[j]) {
+                    aciertos++;
+                }
+            }
+        }
+        System.out.println("");
+        System.out.println("Numero de aciertos: "+aciertos);
+        System.out.println("");
+        
+        System.out.println("Apuesta primitiva");
+        for(int i=0;i<apuesta.length;i++){
+            System.out.println("Dato["+(i+1)+"]: "+apuesta[i]); 
+        }
+        
+        System.out.println("");
+        System.out.println("Numeros ganadores");
+        for(int i=0;i<ganadores.length;i++){
+            System.out.println("Dato["+(i+1)+"]: "+ganadores[i]); 
+        }
+    }
+
+}
+```
+
+# Evidencia de la ejecución del programa  
+<img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/48ff0ab2-db8a-49ca-ad71-310d6a8d618d" />  
+
+
+# Ejercicios Metodos
+
+# **Ejercicio 1**  
+
+Realizar un método que reciba un array de números enteros y devuelva un array que tenga sólo uno de cada 10 números del array original. Es decir, si el array original tiene 43 casillas el array devuelto tendrá 5 con los valores de la casilla 0, la 10, la 20, la 30 y la 40;
+
+```java
+package Metodos;
+
+/**
+ *
+ * @author Andres Felipe Trochez Lugo
+ */
+public class Ejercicio1 {
+
+    public static void main(String[] args) {
+
+        int[] arrayBase = new int[43];
+
+        for (int i=0;i< arrayBase.length;i++) {
+            arrayBase[i] = (int) (Math.random() * 100) + 1;
+        }
+
+        System.out.println("Array original:");
+        for (int i=0;i<arrayBase.length;i++) {
+            System.out.println("Dato[" + i + "]: " + arrayBase[i]);
+        }
+
+        int[] arrayReducido = enteros(arrayBase);
+
+        System.out.println("");
+        System.out.println("Array reducido (cada 10 posiciones):");
+        for (int i=0;i<arrayReducido.length;i++) {
+            System.out.println("Dato[" + i + "]: " + arrayReducido[i]);
+        }
+    }
+
+    public static int[] enteros(int[] arrayBase) {
+
+        int tamañoNuevo = (arrayBase.length / 10) + 1;
+        int[] arrayNuevo = new int[tamañoNuevo];
+
+        int j = 0;
+
+        for (int i=0;i<arrayBase.length;i=i+10) {
+            arrayNuevo[j] = arrayBase[i];
+            j++;
+        }
+
+        return arrayNuevo;
+    }
+}
+
+```
+
+# Evidencia de la ejecucion del programa  
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/24315bcb-b630-40d2-a285-b6b421c7b417" />
 
 
 
