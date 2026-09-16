@@ -15,5 +15,16 @@ package ejerciciosArrays;
  * @author Andres Felipe Trochez Lugo
  */
 public class Ejercicio1 {
-    
+    public static void main(String[] args) {
+        int miArray[] = {8,2,5,4,9,1,0,8,9,3};
+        int[] copiaDeDatos = new int[10];
+        
+        for(int i=0;i<copiaDeDatos.length;i++){
+            
+            copiaDeDatos[i] = miArray[i] + 2;
+            
+            System.out.println("El elemento "+(i+1)+" de copiadedatos es: "+copiaDeDatos[i]);
+        }
+        
+    }
 }
