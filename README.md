@@ -3,8 +3,9 @@
 Se desarrollan 7 ejercicios de Arrays y 3 de Metodos.
 
 **Presenta:** Andres Felipe Trochez Lugo  
+**Codigo:** 20261244308  
 **Programa Academico:** Tecnologia en Desarrollo de Software   
-**Fecha de Entrega:** PENDIENTE
+**Fecha de Entrega:** 16 de Septiembre del 2026
 
 
 # Ejercicios Arreglos
