@@ -441,11 +441,160 @@ public class Ejercicio1 {
 ```
 
 # Evidencia de la ejecucion del programa  
-<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/24315bcb-b630-40d2-a285-b6b421c7b417" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/24315bcb-b630-40d2-a285-b6b421c7b417" />     
+
+
+
+
+# **Ejercicio 2**  
+
+Realizar un método que reciba una array de números enteros y devuelva un array de números enteros, que sería el array recibido pero sin ningún número repetido. Probar el funcionamiento del método con un array de 20 números enteros entre 1 y 10 elegidos de forma aleatoria.
+
+```java
+package Metodos;
+
+/**
+ *
+ * @author Andres Felipe Trochez Lugo
+ */
+public class Ejercicio2 {
+
+    public static void main(String[] args) {
+
+        int[] numeros = new int[20];
+
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = (int) (Math.random() * 10) + 1;
+        }
+
+        System.out.println("Array original:");
+        for (int i = 0; i < numeros.length; i++) {
+            System.out.println("Dato[" + i + "]: " + numeros[i]);
+        }
+
+        int[] sinRepetidos = quitarRepetidos(numeros);
+
+        System.out.println("");
+        System.out.println("Array sin repetidos:");
+        for (int i = 0; i < sinRepetidos.length; i++) {
+            System.out.println("Dato[" + i + "]: " + sinRepetidos[i]);
+        }
+    }
+
+    public static int[] quitarRepetidos(int[] array) {
+
+        int[] temporal = new int[array.length];
+        int contador = 0;
+
+        for (int i = 0; i < array.length; i++) {
+
+            boolean repetido = false;
+
+            for (int j = 0; j < contador; j++) {
+                if (array[i] == temporal[j]) {
+                    repetido = true;
+                }
+            }
+
+            if (!repetido) {
+                temporal[contador] = array[i];
+                contador++;
+            }
+        }
+
+        int[] resultado = new int[contador];
+
+        for (int i = 0; i < contador; i++) {
+            resultado[i] = temporal[i];
+        }
+
+        return resultado;
+    }
+}
+```
+
+# Evidencia de la ejecucion del programa  
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/37bce553-2e47-4ac8-bab7-9f116b3b0615" />
 
 
 
 
 
+# **Ejercicio 3**  
+
+Crear un método String mostrarVector(int [] elementos) que escriba por consola los elementos del array que no estén repetidos, entre corchetes y separados entre si por comas. Crear una clase Prueba con un main que llame y compruebe el funcionamiento del método anterior.
+
+```java
+package Metodos;
+
+/**
+ *
+ * @author Andres Felipe Trochez Lugo
+ */
+public class Ejercicio3{
+
+    public static void main(String[] args) {
+
+        int[] numeros = new int[20];
+
+        for (int i = 0; i < numeros.length; i++) {
+            numeros[i] = (int) (Math.random() * 10) + 1;
+        }
+
+        String resultado = mostrarVector(numeros);
+
+        System.out.println(resultado);
+    }
+
+    public static String mostrarVector(int[] elementos) {
+
+        int[] temporal = new int[elementos.length];
+        int contador = 0;
+
+        for (int i = 0; i < elementos.length; i++) {
+
+            boolean repetido = false;
+
+            for (int j = 0; j < contador; j++) {
+                if (elementos[i] == temporal[j]) {
+                    repetido = true;
+                }
+            }
+
+            if (!repetido) {
+                temporal[contador] = elementos[i];
+                contador++;
+            }
+        }
+
+        String texto = "[";
+
+        for (int i = 0; i < contador; i++) {
+            texto = texto + temporal[i];
+
+            if (i < contador - 1) {
+                texto = texto + ", ";
+            }
+        }
+
+        texto = texto + "]";
+
+        System.out.println("Los elementos sin repetir son: " + texto);
+
+        return texto;
+    }
+}
+```
+
+# Evidencia de la ejecucion del programa  
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/5aa7ded3-668d-4726-8fc9-aaf0f8e74d64" />   
 
 
+
+# Conclusion
+En este taller trabajé con arrays y métodos en Java. Lo que más se me complicó fue calcular el tamaño de un array nuevo cuando no sabía de antemano cuántos datos iba a tener (como al quitar repetidos o tomar cada 10 posiciones), y entender que para rotar un array necesitaba uno auxiliar, para no pisar valores que todavía me hacían falta.  
+
+También me costó comparar elementos de un array contra todos los de otro (como en el ejercicio de la primitiva), porque al principio quería comparar posición por posición, y ahí entendí que eso no funciona si los números están en otro orden.  
+
+Por último, esta fue mi primera vez armando métodos propios: entender la diferencia entre lo que reciben (parámetros) y lo que devuelven (return) me ayudó a reutilizar lógica en varios ejercicios sin tener que reescribirla de cero cada vez.  
+ 
